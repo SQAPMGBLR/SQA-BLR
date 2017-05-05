@@ -1,19 +1,35 @@
 pipeline {
   agent any
   stages {
+    stage('Assign Tasks') {
+      steps {
+        echo 'Tasks assigned on Redmine'
+      }
+    }
+    stage('Code') {
+      steps {
+        echo 'Check out code from Source Code control tool '
+      }
+	  steps {
+        echo 'Perform Static Code Analysis'
+      }
+	   steps {
+        echo 'Check in Code'
+      }
+    }
     stage('Build') {
       steps {
-        echo 'Sathish is building the code'
+        echo 'Build using Maven'
       }
     }
-    stage('Test') {
+	 stage('Test') {
       steps {
-        echo 'Surendra is testing the code'
+        echo 'Test using Selenium'
       }
     }
-    stage('Deploy') {
+	 stage('Deploy') {
       steps {
-        echo 'Suman has deployed the code'
+        echo 'Deploy using Jenkins to Web server'
       }
     }
   }
