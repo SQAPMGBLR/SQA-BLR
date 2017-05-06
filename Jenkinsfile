@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building the project'
-        bat 'sonar-scanner'
+        sh 'sonar-scanner'
       }
     }
     stage('Deploy') {
