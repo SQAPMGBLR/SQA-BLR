@@ -6,11 +6,14 @@
   <artifactId>E-Library</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>E-Library SonarQube Scanner for Maven</name>
+  <name>E-Library</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.language>java</sonar.language>
   </properties>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+  </build>
 
 </project>
