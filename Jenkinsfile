@@ -8,11 +8,12 @@ pipeline {
       }
     }
     stage('SonarQube analysis') {
-      node {
-              withSonarQubeEnv('Sonarqube 6.3.1') {
-                 sh 'mvn clean package sonar:sonar'
+      steps {
+        echo 'Building Proj from SCM'
+        withSonarQubeEnv('Sonarqube 6.3.1') {
+                 sh 'mvn clean sonar:sonar'
               }
-          }
+      }
       
     }
     stage('SonarQube Quality Gate') {
