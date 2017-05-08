@@ -11,7 +11,7 @@ pipeline {
       steps {
         echo 'Analysing the project with Sonarqube'
         withSonarQubeEnv('Sonarqube 6.3.1') { 
-          sh 'sonar-scanner -v'
+          sh 'mvn clean package sonar:sonar'
         }
       }
       
