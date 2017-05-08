@@ -7,15 +7,24 @@ pipeline {
         git(url: 'https://github.com/SQAPMGBLR/SQA-BLR.git', branch: 'master', credentialsId: 'sqapmgblr', poll: true)
       }
     }
-    stage('Build') {
+    stage('SonarQube analysis') {
       steps {
-        echo 'Building the project'
+        echo 'Analysing the project with Sonarqube'
       }
+      withSonarQubeEnv('Sonarqube 6.3.1') { 
+          sh ''
+        }
     }
-    stage('Deploy') {
+    stage('SonarQube Quality Gate') {
       steps {
-        echo 'Deployed the project'
+        echo 'Waiting for the Quality Gate'
       }
+      timeout(time: 1, unit: 'HOURS') { 
+           def qg = waitForQualityGate() 
+           if (qg.status != 'OK') {
+             error "Pipeline aborted due to quality gate failure: ${qg.status}"
+           }
+        }
     }
   }
 }
