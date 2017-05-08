@@ -11,6 +11,7 @@ pipeline {
       steps {
         echo 'Building Proj from SCM'
         withSonarQubeEnv('Sonarqube 6.3.1') {
+          sh '**/*'
                  sh 'mvn clean sonar:sonar'
               }
       }
