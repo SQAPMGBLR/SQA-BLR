@@ -9,9 +9,8 @@ pipeline {
     }
     stage('SonarQube analysis') {
       steps {
-        echo 'Building Proj from SCM'
-        withSonarQubeEnv('Sonarqube 6.3.1') {
-          sh '**/*'
+        echo 'SonarQube analysis'
+        withSonarQubeEnv('Sonarqube 6.3.1') {         
                  sh 'mvn clean sonar:sonar'
               }
       }
