@@ -10,7 +10,7 @@ pipeline {
     stage('SonarQube analysis') {
       steps {
         echo 'SonarQube analysis'
-        bat 'sonar-scanner'
+        bat 'ELibrary-dev/sonar-scanner'
       }
     }
     stage('SonarQube Quality Gate') {
