@@ -10,20 +10,14 @@ pipeline {
     stage('SonarQube analysis') {
       steps {
         echo 'SonarQube analysis'
-        withSonarQubeEnv('Sonarqube 6.3.1') {         
-                 sh 'mvn clean sonar:sonar'
-              }
-      }
-      
+        
+      }      
     }
     stage('SonarQube Quality Gate') {
       steps {
         echo 'Waiting for the Quality Gate'
-        timeout(time: 1, unit: 'HOURS') { 
-           
-        }
-      }
-      
+        
+      }      
     }
   }
 }
