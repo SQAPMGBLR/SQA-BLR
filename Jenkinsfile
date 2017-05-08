@@ -10,14 +10,13 @@ pipeline {
     stage('SonarQube analysis') {
       steps {
         echo 'SonarQube analysis'
-        
-      }      
+        bat 'sonar-scanner'
+      }
     }
     stage('SonarQube Quality Gate') {
       steps {
         echo 'Waiting for the Quality Gate'
-        
-      }      
+      }
     }
   }
 }
