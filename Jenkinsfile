@@ -19,5 +19,10 @@ pipeline {
         echo 'Waiting for the Quality Gate'
       }
     }
+    stage('Launch Sonar') {
+      steps {
+        bat 'start chrome http://localhost:9000/projects/'
+      }
+    }
   }
 }
