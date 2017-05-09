@@ -20,20 +20,9 @@ pipeline {
       }
     }
     stage('Launch Sonar') {
-      node {
-        
-   publishHTML (target: [
-      allowMissing: false,
-      alwaysLinkToLastBuild: false,
-      keepAll: true,
-      reportDir: 'coverage',
-      reportFiles: 'http://localhost:9000/dashboard?id=NTT%3ALibrary-key',
-      reportName: "RCov Report"
-    ])
-   }
-                 
+              
       steps {
-        bat start chrome.exe http://localhost:9000/projects/
+        bat 'chrome.exe http://localhost:9000/projects/'
         httpRequest(url: 'http://localhost:9000/projects/', acceptType: 'TEXT_HTML', contentType: 'TEXT_HTML', httpMode: 'GET')
       }
     }
