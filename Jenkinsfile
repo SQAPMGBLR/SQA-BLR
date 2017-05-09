@@ -17,11 +17,12 @@ pipeline {
     stage('SonarQube Quality Gate') {
       steps {
         echo 'Waiting for the Quality Gate'
+        waitForQualityGate()
       }
     }
     stage('Launch Sonar') {
       steps {
-        bat(script: 'start http://localhost:9000/projects/', returnStatus: true, returnStdout: true)
+        bat 'start http://localhost:9000/projects/'
       }
     }
   }
