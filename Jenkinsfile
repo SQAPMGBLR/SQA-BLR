@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Launch Sonar') {
       steps {
-        bat 'start chrome http://localhost:9000/projects/'
+        bat 'start "" http://localhost:9000/projects/'
       }
     }
   }
