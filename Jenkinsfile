@@ -22,6 +22,7 @@ pipeline {
     stage('Launch Sonar') {
       steps {
         bat 'start chrome.exe http://localhost:9000/projects/'
+        sh ' start "" http://www.google.com'
       }
     }
   }
