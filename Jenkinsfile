@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Launch Sonar') {
       steps {
-        bat(script: 'http://localhost:9000/projects/', returnStatus: true)
+        bat(script: 'start http://localhost:9000/projects/', returnStatus: true, returnStdout: true)
       }
     }
   }
