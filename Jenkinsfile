@@ -27,15 +27,13 @@ pipeline {
       alwaysLinkToLastBuild: false,
       keepAll: true,
       reportDir: 'coverage',
-      reportFiles: 'index.html',
+      reportFiles: 'http://localhost:9000/dashboard?id=NTT%3ALibrary-key',
       reportName: "RCov Report"
     ])
    }
-      
-      
-      
+                 
       steps {
-        bat chrome.exe http://localhost:9000/projects/
+        bat start chrome.exe http://localhost:9000/projects/
         httpRequest(url: 'http://localhost:9000/projects/', acceptType: 'TEXT_HTML', contentType: 'TEXT_HTML', httpMode: 'GET')
       }
     }
