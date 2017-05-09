@@ -9,8 +9,11 @@ pipeline {
     }
     stage('SonarQube analysis') {
       steps {
-        echo 'SonarQube analysis'
-        bat 'sonar-scanner'
+        echo 'SonarQube analysis starting ...................'
+        withSonarQubeEnv('Sonar-6.3') { 
+          bat 'sonar-scanner'
+        }        
+        echo 'SonarQube analysis completed successfully ...................'
         echo 'http://localhost:9000/projects/'
       }
     }
