@@ -20,10 +20,8 @@ pipeline {
       }
     }
     stage('Launch Sonar') {
-              
       steps {
-        bat 'chrome.exe http://localhost:9000/projects/'
-        httpRequest(url: 'http://localhost:9000/projects/', acceptType: 'TEXT_HTML', contentType: 'TEXT_HTML', httpMode: 'GET')
+        bat(script: 'http://localhost:9000/projects/', returnStatus: true)
       }
     }
   }
