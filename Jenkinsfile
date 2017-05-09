@@ -22,7 +22,6 @@ pipeline {
     stage('Launch Sonar') {
       steps {
         bat 'start chrome.exe http://localhost:9000/projects/'
-        sh 'iexplore.exe http://www.google.com'
         httpRequest(url: 'http://localhost:9000/projects/', acceptType: 'TEXT_HTML', contentType: 'TEXT_HTML')
       }
     }
