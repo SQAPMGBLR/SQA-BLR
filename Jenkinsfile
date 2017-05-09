@@ -23,6 +23,7 @@ pipeline {
       steps {
         bat 'start chrome.exe http://localhost:9000/projects/'
         httpRequest(url: 'http://localhost:9000/projects/', acceptType: 'TEXT_HTML', contentType: 'TEXT_HTML', httpMode: 'GET')
+        waitForQualityGate()
       }
     }
   }
