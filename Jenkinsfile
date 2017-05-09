@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Launch Sonar') {
       steps {
-        bat 'start iexplore.exe http://localhost:9000/projects/'
+        bat 'start chrome.exe http://localhost:9000/projects/'
       }
     }
   }
