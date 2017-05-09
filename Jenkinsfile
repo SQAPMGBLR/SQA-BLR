@@ -11,6 +11,7 @@ pipeline {
       steps {
         echo 'SonarQube analysis'
         bat 'sonar-scanner'
+        echo 'http://localhost:9000/projects/'
       }
     }
     stage('SonarQube Quality Gate') {
