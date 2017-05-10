@@ -15,5 +15,10 @@ pipeline {
         echo 'SonarQube analysis completed successfully .....'
       }
     }
+    stage('Launch Sonarqube') {
+      steps {
+        bat 'start http://localhost:9000/projects/'
+      }
+    }
   }
 }
