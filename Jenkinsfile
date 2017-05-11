@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Launch Sonarqube') {
       steps {
-        bat 'start http://localhost:9000/projects/'
+        bat 'start \'http://localhost:9000/projects/\''
       }
     }
   }
